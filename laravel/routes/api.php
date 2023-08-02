@@ -20,5 +20,11 @@ Route::prefix('v1')
         Route::controller(UserTransactionController::class)
             ->group(function () {
                 Route::get('transactions', 'userTransactions');
+                Route::get('user-currency', 'userCurrency');
+                Route::get('user-date', 'userDate');
+                Route::get('status-code', 'statusCode');
+                Route::get('transaction-currency', 'transactionCurrency');
+                Route::get('amount-range', 'amountRange');
+                Route::get('date-range', 'dateRange');
             });
     });

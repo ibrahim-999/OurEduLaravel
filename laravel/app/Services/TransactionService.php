@@ -67,6 +67,14 @@ class TransactionService
         });
     }
 
+    #[NoReturn] public function userCurrency($search, $data): array
+    {
+        return array_filter($data['users'], function ($item) use ($search) {
+            return (array_key_exists('currency', $item) && $item['currency'] == $search
+            );
+        });
+    }
+
     // return all data with search amountRange in all json files like(/api/v1/transactions?amounteMin=10&amounteMax=100 iwith including 10 and 100.)
     public function amountRange(Request $request, $data): array
     {
@@ -83,7 +91,6 @@ class TransactionService
     // return all data with search amountRange in all json files like(/api/v1/transactions?startDate=2021-11-30&endDate=2022-09-07
     public function dateRange(Request $request, $data): array
     {
-
         $results = array_filter($data['transactions'], function ($item) use ($request) {
             return (
             (
@@ -93,6 +100,14 @@ class TransactionService
             );
         });
         return $results;
+    }
+
+    public function userDate($search, $data): array
+    {
+        return array_filter($data['users'], function ($item) use ($search) {
+            return (array_key_exists('created_at', $item) && $item['created_at'] == $search
+            );
+        });
     }
 }
 
