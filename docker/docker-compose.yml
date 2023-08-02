@@ -29,7 +29,7 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
     environment:
-      MYSQL_DATABASE: dev_solutions
+      MYSQL_DATABASE: our_edu
       MYSQL_USERNAME: root
       MYSQL_PASSWORD: password
       MYSQL_ROOT_PASSWORD: password
